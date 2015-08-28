@@ -17,7 +17,7 @@
 	<div class="content"></div>
 
 	<script>
-		$(document).ready(function(){       
+		$(window).ready(function(){       
 
 			$.getJSON("code/flickr.php", 
 
@@ -32,21 +32,23 @@
 
         $('.image').append("<span class='label'>" + item.title + " by " + item.author + "</span>");
 
-
     }); 
-
-			}); 
-			 
-
-		});
-	$("span").hover(
+				$(".image").hover(
   function () {
+  	
     $(".icon").removeClass("hidden");
   },
   function () {
     $(".icon").addClass("hidden");
   }
 );
+
+
+			}); 
+			 
+
+		});
+	
 
   
 
