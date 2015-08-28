@@ -7,8 +7,7 @@
     $data = 'http://api.flickr.com/services/feeds/photos_public.gne?tags=' . $tags . '&format=json';
 
     // Flickr provides the option to import data as preformatted JSON. As this removes all possible risk of corruption this was used here.
-    //jsoncallback=? was used to remove the JavaScript wrapper around the JSON
-   
+    
     $flickrCi = curl_init($data);
     curl_setopt($flickrCi,CURLOPT_RETURNTRANSFER, TRUE);
     $flickrInput = curl_exec($flickrCi);
