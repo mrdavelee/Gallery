@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Chamonix Gallery</title>
+
+	<!-- Load CSS -->
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+	<!-- Load JS -->
+	<!-- Protocol left out of URL for JQuery to allow use with/without SSL -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+</head>
+<body>
+	<div class="content"></div>
+
+	<script>
+		$(document).ready(function(){       
+
+			$.getJSON("code/flickr.php", 
+
+				function(data){$.each(data.items, 
+
+					function(i,item){
+
+        // Create images and append to div id flickr and wrap link around the image.
+        $("<img/>").attr("src", item.media.m.replace('_s', 'm')).appendTo(".content").wrap("<span class='image'><a  target='_blank' href='" + item.link + "' name='"+ item.link + "' title='" +  item.title +"'></a></span>");
+        
+        $('.image').append("<span class='hidden icon'><i class='fa fa-camera-retro fa-3x'></i></span>");
+
+        $('.image').append("<span class='label'>" + item.title + " by " + item.author + "</span>");
+
+
+    }); 
+
+			}); 
+			 
+
+		});
+	$(".image").hover(
+  function () {
+    $(".icon").removeClass("hidden");
+  },
+  function () {
+    $(".icon").addClass("hidden");
+  }
+);
+
+  
+
+		 
+	</script>
+</body>
+</html>
