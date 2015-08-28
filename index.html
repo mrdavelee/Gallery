@@ -31,10 +31,6 @@
         var authString = item.author;
         var author = authString.match(/\((.*?)\)/)[1];
 
-  		// var regEx = /\(([^\)]+)\)/;
-		// var author = regEx.exec(item.author);
-
-
         $('.image').append("<span class='hidden icon'><i class='fa fa-camera-retro fa-2x'></i></span>");
 
         $('.image').append("<span class='label'>" + item.title + " by " + author + "</span>");
