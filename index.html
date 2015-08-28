@@ -28,8 +28,11 @@
         // Create images and append to div class content and wrap link around the image.
         $("<img/>").attr("src", item.media.m.replace('_s', 'm')).appendTo(".content").wrap("<span class='image'><a  target='_blank' href='" + item.link + "' name='"+ item.link + "' title='" +  item.title +"'></a></span>");
         
-        var regEx = /\((.*)\)/;
-		var author = regEx.exec(item.author);
+        var authString = item.author;
+        var author = authString.match(/\((.*?)\)/)[1];
+
+  		// var regEx = /\(([^\)]+)\)/;
+		// var author = regEx.exec(item.author);
 
 
         $('.image').append("<span class='hidden icon'><i class='fa fa-camera-retro fa-2x'></i></span>");
